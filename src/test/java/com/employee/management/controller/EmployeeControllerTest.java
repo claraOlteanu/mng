@@ -64,9 +64,9 @@ class EmployeeControllerTest {
 //        }
         public void validGetEmployee() throws Exception {
             long testId = 3;
-            when(empS.findById(testId)).thenReturn(employeeMock);
+            when(empS.findById(anyLong())).thenReturn(employeeMock);
             mockMvc.perform(MockMvcRequestBuilders
-                            .get("/api/employees/" + testId)
+                            .get("/api/employees/3")
                             .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk());
         }
